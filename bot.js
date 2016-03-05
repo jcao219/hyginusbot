@@ -25,6 +25,11 @@ function respond() {
     msg += request.pusher.name;
     msg += " pushed to ";
     msg += request.ref;
+    var commitMsgs = request.commits.map(
+      function(x){ return x.message; });
+    msg += " commits with these messages: \""
+    msg += commitMsgs.join("\", \"");
+    msg += "\"";
     postMessage(msg);
   } else {
     console.log("don't care");
