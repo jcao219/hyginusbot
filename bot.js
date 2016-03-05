@@ -10,6 +10,7 @@ function respond() {
     request = JSON.parse(thing);
   } catch (e) {
     console.log("!! !! Something bad was sent to me.");
+    console.log(thing);
     this.res.writeHead(200);
     this.res.end();
     return;
