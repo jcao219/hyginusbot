@@ -11,6 +11,7 @@ function respond() {
   } catch (e) {
     console.log("!! !! Something bad was sent to me.");
     console.log(thing);
+    console.log(e.message);
     this.res.writeHead(200);
     this.res.end();
     return;
