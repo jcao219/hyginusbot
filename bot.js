@@ -15,12 +15,18 @@ function respond() {
     return;
   }
   var botRegex = /^\/cool guy$/;
+  var whoamiRegex = /^\/mrhyginus$/;
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage("");
     this.res.end();
+  } else if(request.text && whoamiRegex.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("I am just the coolest!");
+    this.res.end();
   } else if (request.ref) {
+    this.res.writeHead(200);
     var msg = "";
     msg += request.pusher.name;
     msg += " pushed to ";
@@ -31,6 +37,7 @@ function respond() {
     msg += commitMsgs.join("\", \"");
     msg += "\"";
     postMessage(msg);
+    this.res.end();
   } else {
     console.log("don't care");
     this.res.writeHead(200);
