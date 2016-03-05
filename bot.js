@@ -4,6 +4,7 @@ var cool = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 
 function respond() {
+  console.log(this.req.chunks[0]);
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy$/;
 
