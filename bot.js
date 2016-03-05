@@ -1,5 +1,6 @@
 var HTTPS = require('https');
 var cool = require('cool-ascii-faces');
+var sleep = require('sleep');
 
 var botID = process.env.BOT_ID;
 
@@ -39,6 +40,9 @@ function respond() {
     msg += commitMsgs.join("\", \"");
     msg += "\"";
     postMessage(msg);
+    sleep.sleep(2);
+    postMessage(request.compare);
+
     this.res.end();
   } else {
     console.log("don't care");
